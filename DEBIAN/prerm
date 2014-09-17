@@ -2,6 +2,6 @@
 set -ex
 
 echo "Stopping domicube daemon"
-/etc/init.d/domicube stop
+/etc/init.d/domicube stop || true
 echo "Removing InitScripts"
 update-rc.d -f domicube remove
