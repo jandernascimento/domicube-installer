@@ -1,10 +1,12 @@
 #!/bin/sh
 set -ex
-echo "Post install fired"
-
+echo "Installing NPM dependencies"
 npm install debug
 npm install sensortag
 npm install mqtt
 npm install async
 npm install mathjs
+echo "Installing InitScripts"
 update-rc.d domicube defaults
+echo "Starting domicube daemon"
+/etc/init.d/domicube start

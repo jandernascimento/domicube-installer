@@ -1,5 +1,7 @@
 #!/bin/sh
 set -ex
 
-echo "Prerm fired"
+echo "Stopping domicube daemon"
+/etc/init.d/domicube stop
+echo "Removing InitScripts"
 update-rc.d -f domicube remove
