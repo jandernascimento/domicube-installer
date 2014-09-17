@@ -1,0 +1,33 @@
+{
+  "name": "domi_cube_node",
+  "version": "0.0.1",
+  "description": "domi_cube support over Sensortag - communicates over bluetooth 4.0",
+  "main": "domi_cube_node.js",
+  "scripts": {
+    "test": "jshint *.js"
+  },
+ "repository": {
+    "type": "git",
+    "url": "https://gitlab.inrialpes.fr/creativitylab/cubi_dome"
+  },
+  "keywords": [
+    "TI",
+    "SensorTag",
+    "Appsgate"
+  ],
+  "author": "Rémi Pincent",
+  "license": "",
+  "readmeFilename": "README.md",
+  "gitHead": "825d57348d527de6b7265e8864abba9d73513841",
+  "dependencies": {
+    "sensortag" : "git://github.com/Lahorde/node-sensortag.git#969934e32d390b61af7396b8d7a2f3d58472a49e", 
+    "async": "~0.2.9",
+    "debug": "~0.7.2",
+    "mqtt": "~0.3.8",
+    "mathjs": "*"
+  },
+  "devDependencies": {
+    "async": "~0.2.7",
+    "jshint": "~1.1.0"
+  }
+}

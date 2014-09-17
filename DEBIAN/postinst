@@ -1,0 +1,10 @@
+#!/bin/sh
+set -ex
+echo "Post install fired"
+
+npm install debug
+npm install sensortag
+npm install mqtt
+npm install async
+npm install mathjs
+update-rc.d domicube defaults

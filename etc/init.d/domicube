@@ -1,0 +1,31 @@
+#! /bin/sh
+set -ex
+
+echo "Domicube service daemon"
+
+. /lib/lsb/init-functions
+
+# Some things that run always
+export DEBUG=domi_cube_node_test
+export NODE_HOME=/usr/local/bin
+export DOMICUBE_HOME=/opt/domicube
+export PIDFILE=/var/run/domicube.pid
+export LOGFILE=/var/log/domicube.log
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting domicube "
+    start-stop-daemon --start --background --make-pidfile --pidfile $PIDFILE --exec $NODE_HOME/node $DOMICUBE_HOME/domi_cube_node_test.js -- > $LOGFILE
+    ;;
+  stop)
+    echo "Stopping domicube"
+    start-stop-daemon --stop --retry=TERM/30/KILL/5 --pidfile $PIDFILE
+    rm $PIDFILE
+    ;;
+  *)
+    echo "Usage: /etc/init.d/domicube {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0

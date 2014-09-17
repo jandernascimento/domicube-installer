@@ -1,0 +1,5 @@
+#!/bin/sh
+set -ex
+
+echo "Prerm fired"
+update-rc.d -f domicube remove

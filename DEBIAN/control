@@ -1,0 +1,6 @@
+Package: domicube
+Maintainer: botelhoj@imag.fr
+Architecture: armhf
+Version: 0.1
+Depends: libusb-dev, libdbus-1-dev, libglib2.0-dev, bluetooth, bluez, bluez-utils, blueman, libbluetooth-dev, mosquitto, libnss-mdns
+Description: Domicube package for raspberry Pi
