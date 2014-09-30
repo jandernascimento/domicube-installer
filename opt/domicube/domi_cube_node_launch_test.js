@@ -1,5 +1,5 @@
 var DomiCubeNode = require('./domi_cube_node');
-var debug = require('debug')('domi_cube_node_launch_test');
+var debug = require('debug')('./domi_cube_node_launch_test');
 var async = require('async');
 
 /************************************************

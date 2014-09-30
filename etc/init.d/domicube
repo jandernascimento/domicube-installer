@@ -1,12 +1,19 @@
 #! /bin/sh
-set -ex
+### BEGIN INIT INFO
+# Provides:          domicube
+# Required-Start:    $syslog $local_fs
+# Required-Stop:    
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Domicube daemon (by Jander Nascimento)
+### END INIT INFO
 
-echo "Domicube service daemon"
+set -x
 
 . /lib/lsb/init-functions
 
 # Some things that run always
-export DEBUG=domi_cube_node_test
+export DEBUG=domi_cube_node_launch_test,domi_cube_node,sensortag-node,noble
 export NODE_HOME=/usr/local/bin
 export DOMICUBE_HOME=/opt/domicube
 export PIDFILE=/var/run/domicube.pid
@@ -14,18 +21,27 @@ export LOGFILE=/var/log/domicube.log
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
-    echo "Starting domicube "
-    start-stop-daemon --start --background --make-pidfile --pidfile $PIDFILE --exec $NODE_HOME/node $DOMICUBE_HOME/domi_cube_node_test.js -- > $LOGFILE
+    echo "Starting domicube"
+    start-stop-daemon --start --background --make-pidfile --chdir $DOMICUBE_HOME  --pidfile $PIDFILE --exec $NODE_HOME/node -- $DOMICUBE_HOME/domi_cube_node_test.js 
     ;;
   stop)
     echo "Stopping domicube"
     start-stop-daemon --stop --retry=TERM/30/KILL/5 --pidfile $PIDFILE
     rm $PIDFILE
     ;;
+  status)
+    start-stop-daemon --status --pidfile $PIDFILE
+    STATS="$?" 
+    if [ -f $PIDFILE -a $STATS -eq 0 ]; then 
+        echo "* domicube is running";
+    else
+        echo "* domicube is stopped";
+    fi
+    ;;
   *)
-    echo "Usage: /etc/init.d/domicube {start|stop}"
+    echo "Usage: /etc/init.d/domicube {start|status|stop}"
     exit 1
     ;;
 esac
 
-exit 0
+exit 0;

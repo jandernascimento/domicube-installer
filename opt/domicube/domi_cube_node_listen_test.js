@@ -1,4 +1,4 @@
-var debug = require('debug')('domi_cube_node_listen_test');
+var debug = require('debug')('./domi_cube_node_listen_test');
 var url = require('url');
 var mqtt = require('mqtt');
 var DomiCubeNode = require('./domi_cube_node');

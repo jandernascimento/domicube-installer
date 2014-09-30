@@ -1,5 +1,5 @@
 var DomiCubeNode = require('./domi_cube_node');
-var debug = require('debug')('domi_cube_node_test');
+var debug = require('debug')('./domi_cube_node_test');
 var url = require('url');
 var mqtt = require('mqtt');
 var async = require('async');

@@ -1,12 +1,17 @@
 #!/bin/sh
 set -ex
 echo "Installing NPM dependencies"
-#npm install debug
-#npm install sensortag
-#npm install mqtt
-#npm install async
-#npm install mathjs
+export DOMICUBE_HOME="/opt/domicube"
+
+#npm install debug@2.0.0 $DOMICUBE_HOME
+#npm install sensortag@0.1.7 $DOMICUBE_HOME
+#npm install mqtt@0.3.12 $DOMICUBE_HOME
+#npm install async@0.9.0 $DOMICUBE_HOME
+#npm install mathjs@1.0.1 $DOMICUBE_HOME
+
 echo "Installing InitScripts"
+
 update-rc.d domicube defaults
+
 echo "Starting domicube daemon"
 /etc/init.d/domicube start
