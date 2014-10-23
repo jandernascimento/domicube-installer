@@ -22,7 +22,7 @@ export LOGFILE=/var/log/domicube.log
 case "$1" in
   start)
     echo "Starting domicube"
-    start-stop-daemon --start --background --make-pidfile --chdir $DOMICUBE_HOME  --pidfile $PIDFILE --exec $NODE_HOME/node -- $DOMICUBE_HOME/domi_cube_node_test.js 
+    start-stop-daemon --start --background --make-pidfile --chdir $DOMICUBE_HOME  --pidfile $PIDFILE --exec $NODE_HOME/node -- $DOMICUBE_HOME/domi_cube_node_launch_test.js
     ;;
   stop)
     echo "Stopping domicube"

@@ -1,6 +1,6 @@
 Package: domicube
 Maintainer: Jander Nascimento<botelho@imag.fr>
 Architecture: all
-Version: 0.12
+Version: 0.13
 Depends: libusb-dev, libdbus-1-dev, libglib2.0-dev, bluetooth, bluez, bluez-utils, blueman, libbluetooth-dev, mosquitto, libnss-mdns, nodejs-appsgate(=0.10.17)
 Description: Domicube package
